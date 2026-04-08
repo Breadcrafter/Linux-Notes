@@ -1,59 +1,59 @@
 ﻿
-Boot Process:
+**Boot Process:**
 
   
 
-Boot Process - Is the steps that a computer takes to start up (boot)
+**Boot Process** - Is the steps that a computer takes to start up (boot)
 
   
 
-1.  Preboot Execution Environment PXE
+1.  **Preboot Execution Environment PXE**
     
 
--   Optional, used for remote booting / network boot
+    -   Optional, used for remote booting / network boot
     
 
-1.  Bootstrap phase
+1.  **Bootstrap phase**
     
 
--   The first phase of the linux boot process
+  -   The first phase of the linux boot process
     
--   Responsible for testing and bringing the hardware up
+  -   Responsible for testing and bringing the hardware up
     
--   BIOS & UEFI / POST which are what actually Initialize the hardware, and loading the bootloader / handing control to the bootloader  
+  -   BIOS & UEFI / POST which are what actually Initialize the hardware, and loading the bootloader / handing control to the bootloader  
       
     
 
-2.  Bootloader (ex. GRUB2)
+2.  **Bootloader (ex. GRUB2)**
     
 
--   Loads the OS and prepares the system
+  -   Loads the OS and prepares the system
     
--   Loads Initial RAM disc, and kernel at the same time
-    
-
-  
-
-3.  Initial RAM Disk (initrd)
-    
-
--   Essential drivers and tools are loaded to RAM, before switching to the real room filesystem
-    
--   A temp file system
+  -   Loads Initial RAM disc, and kernel at the same time
     
 
   
 
-4.  Kernel
+3. ** Initial RAM Disk (initrd)**
     
 
--   The core of the OS, managing system resources
+  -   Essential drivers and tools are loaded to RAM, before switching to the real room filesystem
     
--   The brain of the system that talks to the actual hardware
+  -   A temp file system
     
--   Initialize hardware, with drivers and such
+
+  
+
+4. ** Kernel**
     
--   Mounts the real root filesystem
+
+  -   The core of the OS, managing system resources
+    
+  -   The brain of the system that talks to the actual hardware
+    
+  -   Initialize hardware, with drivers and such
+    
+  -   Mounts the real root filesystem
     
 
   
@@ -95,7 +95,7 @@ Administrators might want to modify the GRUB2 setting, to do that you can edit t
 
   
 
-Initial RAM Disk (initrd.img) - A temporary root filesystem that is loaded into memory / RAM before the real root filesystem is mounted.
+**Initial RAM Disk (initrd.img)** - A temporary root filesystem that is loaded into memory / RAM before the real root filesystem is mounted.
 
   
 
@@ -137,11 +137,11 @@ Initrd typically located in /boot/initrd.img
 
 Admins can create or update it using tools like mkinitramfs or dracut
 
-Kernel - The core of the OS that manages hardware, processes, memory, and system resources.
+**Kernel** - The core of the OS that manages hardware, processes, memory, and system resources.
 
   
 
-Kernel Process
+**Kernel Process**
 
   
 
@@ -160,17 +160,17 @@ Making changes to Kernel
 
   
 
--   Adjust Kernel behavior with sysctl - allows admins to modify kernel parameters at runtime (will only apply once at runtime not permanent). Parameters that control various system functions like networking, memory management, and security settings.
+  -   Adjust Kernel behavior with sysctl - allows admins to modify kernel parameters at runtime (will only apply once at runtime not permanent). Parameters that control various system functions like networking, memory management, and security settings.
     
 
   
 
--   To make permanent changes to linux kernel - you have to edit the etc/sysctl.conf file
+  -   To make permanent changes to linux kernel - you have to edit the etc/sysctl.conf file
     
 
   
 
--   Apply the changes made to the etc/sysctl.conf file with sysctl -p command
+  -   Apply the changes made to the etc/sysctl.conf file with sysctl -p command
     
 
   
