@@ -2,7 +2,7 @@
 
 
 
-Conversion time: 19.96 seconds.
+Conversion time: 7.256 seconds.
 
 
 Using this Markdown file:
@@ -15,7 +15,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs™ to Markdown version 2.0β2
-* Thu Apr 09 2026 05:22:04 GMT-0700 (Pacific Daylight Time)
+* Fri Apr 10 2026 17:55:39 GMT-0700 (Pacific Daylight Time)
 * Source doc: Basic Linux Concepts 
 * Tables are currently converted to HTML tables.
 ----->
@@ -227,8 +227,8 @@ All of the following are examples of sub directories you find in /usr
 
 
 
-* /usr/bin : Holds application binaries used by regular users 
-* /usr/sbin : contains admin tools that require sudo privileges 
+* /usr/bin : Holds application binaries used by regular users (/bin is typically simlinked to /usr/bin) 
+* /usr/sbin : contains admin tools that require sudo privileges (/sbin is typically simlinked to /usr/sbin) 
 *  /usr/lib : stores shared libraries
 * /usr/share : documentation and non-executable data
 
@@ -283,6 +283,8 @@ Some New commands ig:
 
 
 * ls -la /*directory path*        - the -l flag lists files with extra info, -a flag lists all `                                        files including hidden files.
+
+ls -lh : -h converts bytes to KB/MB/GB, -l lists files with extra info 
 
 `tail [file] : `Shows last 10 lines. : Quick check of recent events.
 
