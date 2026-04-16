@@ -22,7 +22,7 @@ Conversion notes:
 
 **<span style="text-decoration:underline;">Shell Operations</span>**
 
-**Shell - **A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
+**Shell -** A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
 
 Bash variables typically have a $ sign in front when you want to **access, print, or use** the data stored inside that variable.  (A fetch command)
 
@@ -41,7 +41,7 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     	               Fred 
 
-* **HOME Variable : **Points to a user’s home directory, where personal files, documents, and settings are stored. 
+* **HOME Variable :** Points to a user’s home directory, where personal files, documents, and settings are stored. 
 
     * This file path ie where the home variable points to, can be used by porgrams to identify where they can save or retrieve my user-specific data
 
@@ -67,7 +67,7 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     	Zshell 
 
-* **PS1 (Prompt String 1) Variable : **Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
+* **PS1 (Prompt String 1) Variable :** Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
 
     Escape Characters need to know
 
@@ -107,7 +107,7 @@ Other Prompt variables (less about needing to know and more of just having an id
 
 **PS2 :** The “continuation” prompt (If you type a command and hit Enter without finishing it (like an open quote), you see a >. Thats PS2.
 
-**PS3 : **Used as the prompt for the select loop in scripts
+**PS3 :** Used as the prompt for the select loop in scripts
 
 **PS4 :** Used when debugging scripts (bash -x) to show execution traces
 
@@ -136,25 +136,19 @@ Other Prompt variables (less about needing to know and more of just having an id
 
 * **Permanent Way :** To make the change stick, you have to write that equation / command into the file the shell reads every time it start up. (~/.bashrc) &lt;------ The file you modify 
 
-        **vim ~/.bashrc**
+ 	**vim ~/.bashrc**
 
+	(At the very bottom of the file type following) 
 
-        (At the very bottom of the file type following) 
+	**export PATH=$PATH:/home/fred/bin** 
 
+	(adds the folder called bin in Fred’s home directory to the end of the list)
 
-        **export PATH=$PATH:/home/fred/bin** 
+	**Save and Exit**
 
+	**source ~/.bashrc**
 
-        (adds the folder called bin in Fred’s home directory to the end of the list)
-
-
-        **Save and Exit**
-
-
-        **source ~/.bashrc **
-
-
-        (This command applies the changes you made to the PATH variable / bashrc file) 
+	(This command applies the changes you made to the PATH variable / bashrc file) 
 
 
 		Example I might use this for:
