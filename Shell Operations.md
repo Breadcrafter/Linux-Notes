@@ -22,7 +22,7 @@ Conversion notes:
 
 **<span style="text-decoration:underline;">Shell Operations</span>**
 
-**Shell - **A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
+**Shell -** A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
 
 Bash variables typically have a $ sign in front when you want to **access, print, or use** the data stored inside that variable.  (A fetch command)
 
@@ -41,33 +41,25 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     	               Fred 
 
-* **HOME Variable : **Points to a user’s home directory, where personal files, documents, and settings are stored. 
+* **HOME Variable :** Points to a user’s home directory, where personal files, documents, and settings are stored. 
 
     * This file path ie where the home variable points to, can be used by porgrams to identify where they can save or retrieve my user-specific data
 
 
     Example: echo $HOME
-
-
-                  /home/Fred 
+             /home/Fred 
 
 * **SHELL Variable :** Indicates the command-line interpreter running the current terminal session. The SHELL variable is the “language interpreter” for everything said to the computer. 
 
     echo $SHELL
 
-
     /bin/bash
 
-
     Examples:            
-
-
     	Bash
-
-
     	Zshell 
 
-* **PS1 (Prompt String 1) Variable : **Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
+* **PS1 (Prompt String 1) Variable :** Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
 
     Escape Characters need to know
 
@@ -90,7 +82,6 @@ PS1=”\u@\h:\w\$ “
 Result: tony@linux-lab: /var/log$ 
 
 **The “Expansion Rule” :** 
-
 
 
 * Double Quotes(“  “)**Are Weak**: Allow variables to “Expand” (change) 
@@ -128,10 +119,7 @@ Other Prompt variables (less about needing to know and more of just having an id
 * **PATH Variable :** A colon-separated list of directories where the shell looks for executable files. Its like a list of directories that when you run a command or something like ls the shell will look through the path variable directories from left to right until it finds the file or ls file and then it runs it. 
 
     Example: echo $PATH 
-
-
-                    /usr/local/bin:/usr/bin:/bin:/usr/games 
-
+             /usr/local/bin:/usr/bin:/bin:/usr/games 
 
     So when you type the ls command it goes through that list from left to right
 
@@ -141,37 +129,28 @@ Other Prompt variables (less about needing to know and more of just having an id
 * **Modifying PATH Variable :** These are how you would add a new folder like /opt/myapps to the path so you can run custom tools easily 
 * **Temporary Way (Current Session) :** literally type in the command 
 
-        export PATH=$PATH:/opt/myapps	  (this will add the /op/myapps directory to the end of the list)
+  	export PATH=$PATH:/opt/myapps	  (this will add the /op/myapps directory to the end of the list)
 
-
-        export PATH=/opt/myapps:$PATH  (this will add directory to beginning of list)
+	export PATH=/opt/myapps:$PATH  (this will add directory to beginning of list)
 
 * **Permanent Way :** To make the change stick, you have to write that equation / command into the file the shell reads every time it start up. (~/.bashrc) &lt;------ The file you modify 
 
-        **vim ~/.bashrc**
+  **vim ~/.bashrc**
+  (At the very bottom of the file type following) 
+
+  **export PATH=$PATH:/home/fred/bin** 
+	(adds the folder called bin in Fred’s home directory to the end of the list)
+
+  **Save and Exit**
+
+  **source ~/.bashrc **
 
 
-        (At the very bottom of the file type following) 
+  (This command applies the changes you made to the PATH variable / bashrc file) 
 
+Example I might use this for:
 
-        **export PATH=$PATH:/home/fred/bin** 
-
-
-        (adds the folder called bin in Fred’s home directory to the end of the list)
-
-
-        **Save and Exit**
-
-
-        **source ~/.bashrc **
-
-
-        (This command applies the changes you made to the PATH variable / bashrc file) 
-
-
-		Example I might use this for:
-
-		If you wanted to have an easy way to start firefox from the terminal, you could add the directory that firefox was located in and add it to the PATH variable. Then type firefox and it would run / open firefox. 
+If you wanted to have an easy way to start firefox from the terminal, you could add the directory that firefox was located in and add it to the PATH variable. Then type firefox and it would run / open firefox. 
 
 **Delete a Variable**
 
@@ -202,8 +181,6 @@ which (shows exactly which folder a command is being pulled from)
 **source ~/.bashrc** and **. ~/.bashrc** both commands do the same thing that is applying the current bashrc modified configuration to the shell permanently. And both commands work in RHEL and debian based distros. 
 
 **~/.bashrc vs ~/.bashrc_profile**
-
-
 
 * **~/.bashrc:** The file that is executed for non-login shells (Local login shells)
 * **~/.bashrc_profile:** The file that is executed for login shells (Remote login shells / SSH login)
