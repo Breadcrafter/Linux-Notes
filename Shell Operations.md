@@ -47,13 +47,13 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
 
     Example: echo $HOME
-             /home/Fred 
+    	               /home/Fred 
 
 * **SHELL Variable :** Indicates the command-line interpreter running the current terminal session. The SHELL variable is the “language interpreter” for everything said to the computer. 
 
     echo $SHELL
 
-    /bin/bash
+    	               /bin/bash
 
     Examples:            
     	Bash
