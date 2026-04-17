@@ -2,7 +2,7 @@
 
 
 
-Conversion time: 9.315 seconds.
+Conversion time: 6.538 seconds.
 
 
 Using this Markdown file:
@@ -15,14 +15,14 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs™ to Markdown version 2.0β2
-* Thu Apr 16 2026 05:02:40 GMT-0700 (Pacific Daylight Time)
+* Fri Apr 17 2026 04:24:45 GMT-0700 (Pacific Daylight Time)
 * Source doc: Shell Operations / things 
 ----->
 
 
 **<span style="text-decoration:underline;">Shell Operations</span>**
 
-**Shell -** A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
+**Shell - **A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
 
 Bash variables typically have a $ sign in front when you want to **access, print, or use** the data stored inside that variable.  (A fetch command)
 
@@ -41,7 +41,7 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     	               Fred 
 
-* **HOME Variable :** Points to a user’s home directory, where personal files, documents, and settings are stored. 
+* **HOME Variable : **Points to a user’s home directory, where personal files, documents, and settings are stored. 
 
     * This file path ie where the home variable points to, can be used by porgrams to identify where they can save or retrieve my user-specific data
 
@@ -67,7 +67,7 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     	Zshell 
 
-* **PS1 (Prompt String 1) Variable :** Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
+* **PS1 (Prompt String 1) Variable : **Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
 
     Escape Characters need to know
 
@@ -89,6 +89,18 @@ PS1=”\u@\h:\w\$ “
 
 Result: tony@linux-lab: /var/log$ 
 
+**The “Expansion Rule” :** 
+
+
+
+* Double Quotes(“  “)**Are Weak**: Allow variables to “Expand” (change) 
+    * When you open the terminal, the shell reads .bashrc, and sets the variable once, and that variable is set to that for the entire session. 
+    * So for \t in double quotes, it would be stuck and wouldn't change after each time you hit enter.
+    * Its like a snapshot of the variable at the start of the session
+* Single Quotes (‘   ‘)**Are Strong**: Keep everything literal
+    * It updates every time you start up the shell / every time you hit enter it updates for the new prompt
+    * So for \t every time you hit enter to a new prompt it will look at the variable and update it. This makes it look like your clock is ticking.    
+
 **Editing the PS1 variables**
 
 **(User Level)**
@@ -107,7 +119,7 @@ Other Prompt variables (less about needing to know and more of just having an id
 
 **PS2 :** The “continuation” prompt (If you type a command and hit Enter without finishing it (like an open quote), you see a >. Thats PS2.
 
-**PS3 :** Used as the prompt for the select loop in scripts
+**PS3 : **Used as the prompt for the select loop in scripts
 
 **PS4 :** Used when debugging scripts (bash -x) to show execution traces
 
@@ -136,24 +148,40 @@ Other Prompt variables (less about needing to know and more of just having an id
 
 * **Permanent Way :** To make the change stick, you have to write that equation / command into the file the shell reads every time it start up. (~/.bashrc) &lt;------ The file you modify 
 
- 	**vim ~/.bashrc**
+        **vim ~/.bashrc**
 
-	(At the very bottom of the file type following) 
 
-	**export PATH=$PATH:/home/fred/bin** 
+        (At the very bottom of the file type following) 
 
-	(adds the folder called bin in Fred’s home directory to the end of the list)
 
-	**Save and Exit**
+        **export PATH=$PATH:/home/fred/bin** 
 
-	**source ~/.bashrc**
 
-	(This command applies the changes you made to the PATH variable / bashrc file) 
+        (adds the folder called bin in Fred’s home directory to the end of the list)
+
+
+        **Save and Exit**
+
+
+        **source ~/.bashrc **
+
+
+        (This command applies the changes you made to the PATH variable / bashrc file) 
 
 
 		Example I might use this for:
 
 		If you wanted to have an easy way to start firefox from the terminal, you could add the directory that firefox was located in and add it to the PATH variable. Then type firefox and it would run / open firefox. 
+
+**Delete a Variable**
+
+**unset** - This command removes the variable from the current shell’s memory entirely 
+
+**unset PS1** (this will remove the PS1 variable from the current session (or memory)
+
+* The unset command will delete the entire variable, you CAN’T just remove part of the variable, and there is NO way to do that.
+
+* This command only affects the current shell session, to completely remove the variable you have to manually delete it from the ~/.bashrc file
 
 Some new Commands: 
 
@@ -172,3 +200,12 @@ which (shows exactly which folder a command is being pulled from)
 **<code>set</code>**: Displays **all** variables (including local ones and shell functions). This list is much longer than `printenv`.
 
 **source ~/.bashrc** and **. ~/.bashrc** both commands do the same thing that is applying the current bashrc modified configuration to the shell permanently. And both commands work in RHEL and debian based distros. 
+
+**~/.bashrc vs ~/.bashrc_profile**
+
+
+
+* **~/.bashrc:** The file that is executed for non-login shells (Local login shells)
+* **~/.bashrc_profile:** The file that is executed for login shells (Remote login shells / SSH login)
+* It is like this for **security** ensuring all security scripts are run, **Environment Isolation** teats ssh login as a fresh login to ensure it only loads what is necessary for a remote connection.
+* SSH ignores ~/.bashrc unless the ~/.bashrc_profile tells it to look there
