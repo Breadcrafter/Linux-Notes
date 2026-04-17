@@ -47,7 +47,7 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
 
     Example: echo $HOME
-    	               /home/Fred 
+             /home/Fred 
 
 * **SHELL Variable :** Indicates the command-line interpreter running the current terminal session. The SHELL variable is the “language interpreter” for everything said to the computer. 
 
@@ -77,7 +77,7 @@ Difference between \w and \W
 
 **Examples:** 
 
-PS1=”\u@\h:\w\$ “
+    	               PS1=”\u@\h:\w\$ “
 
 Result: tony@linux-lab: /var/log$ 
 
