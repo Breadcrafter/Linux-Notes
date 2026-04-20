@@ -29,7 +29,7 @@ Conversion notes:
 
 
 
-1. ** Preboot Execution Environment PXE**
+1. **Preboot Execution Environment PXE**
 * Optional, used for remote booting / network boot
 1. **Bootstrap phase**
 * The first phase of the linux boot process
@@ -316,6 +316,7 @@ To ensure stability, a server requires sufficient amount of RAM to handle multip
 * **x86_64 (AMD64)** - A 64-bit extension of x86
     * Typical Linux systems support up to 128 TB of RAM *although can be higher
     * Most common, and widely supported  \
+    * In Linux MultiLib = compatibility, it is used to allow 32 bit applications to become compatibale with 64 bit systems. 
 
 * **AArch64 (ARM64)** - The 64-bit version of ARM processors, designed for power, efficiency, and scalability 
     * Used mainly in **mobile devices**, **cloud servers**, and **energy** **saving data centers**
