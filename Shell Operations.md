@@ -286,7 +286,6 @@ cd.. Is based on the **folder structure**; cd - is based on **your previous acti
 In the Linux execution cycle the shell performs the Tilde Expansion phase as one of its first steps. 
 
 
-
 * When the shell sees ~ it immediately replaces it with the string found in the $HOME environment variable 
 
     ~   =   /home/Fred   (~ is converted to /home/localuser 
@@ -295,20 +294,15 @@ In the Linux execution cycle the shell performs the Tilde Expansion phase as one
 
 **Diagnostic Commands**
 
-
-
 * **pwd (Print Working Directory) :** Shows the absolute path of your current directory
 * **realpath : ** Command that converts a relative path into an absolute path. 
     * You are in ~ and type,
-
-        **realpath scripts/test.sh **
-
-
+        **realpath scripts/test.sh**
         Output: /home/fred/scripts/test.sh 
 
 * **basename : **Returns only the filename from a path
     * **basename /etc/passwd**
-    * Output: **passwd **
+    * Output: **passwd**
 * **dirname : **Returns only the directory part of the path 
     * **dirname /etc/passwd**
     * Output: **/etc**
@@ -316,8 +310,6 @@ In the Linux execution cycle the shell performs the Tilde Expansion phase as one
 **The Hidden Execution Rule** 
 
 Even if you are in the same folder as a file, the shell will not find it by name alone because the current directory is not in the $PATH variable.
-
-
 
 * **myscript.sh** = The shell looks in the systems official folders ie $PATH variable (command fails)
 * **./myscript.sh **= ignores the system folders / $PATH; instead looks only in the directory that you are currently in. (command runs / works) 
