@@ -29,12 +29,9 @@ Conversion notes:
 <p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
 <a href="#gdcalert2">alert2</a>
 
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
 **<span style="text-decoration:underline;">Shell Operations</span>**
 
-**Shell - **A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
+**Shell -** A program that acts as an intermediary between a user and the Linux Kernel, allowing you to do everything from checking files and running programs to customizing how the system works. 
 
 Bash variables typically have a $ sign in front when you want to **access, print, or use** the data stored inside that variable.  (A fetch command)
 
@@ -51,26 +48,17 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
 	Example: echo $DISPLAY
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: Definition &darr;&darr; outside of definition list. Missing preceding term(s)? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 		     :0.0
 
 
 
 * If you are X-Forwarding with SSH the system will show localhost:10.0 when you do echo $DISPLAY
 
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: Definition &darr;&darr; outside of definition list. Missing preceding term(s)? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 	:0 = Display Number : Usually refers to the entire collection of monitors connected to one keyboard / mouse set
 
 	.0 = Screen Number : This is the logical screen, which is almost always .0 because linux treats multiple monitors as 1 logical display to be able to grag windows between them. 
 
-**When you would see :1.0 **(Local Multi-Session)
-
+**When you would see :1.0** (Local Multi-Session)
 
 
 * If you login and you still have a user logged in 
@@ -95,20 +83,15 @@ Bash variables typically have a $ sign in front when you want to **access, print
 * **SHELL Variable :** Indicates the command-line interpreter running the current terminal session. The SHELL variable is the “language interpreter” for everything said to the computer. 
 
     echo $SHELL
-
-
     /bin/bash
-
 
     Examples:            
 
+  Bash
+  
+  Zshell 
 
-    	Bash
-
-
-    	Zshell 
-
-* **PS1 (Prompt String 1) Variable : **Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
+* **PS1 (Prompt String 1) Variable :** Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
 
     Escape Characters need to know
 
@@ -135,8 +118,6 @@ Result: tony@linux-lab: /var/log$
 \W = working directory, the working man MAN which are big so big W 
 
 **The “Expansion Rule” :** 
-
-
 
 * Double Quotes(“  “)**Are Weak**: Allow variables to “Expand” (change) 
     * When you open the terminal, the shell reads .bashrc, and sets the variable once, and that variable is set to that for the entire session. 
@@ -174,7 +155,6 @@ Other Prompt variables (less about needing to know and more of just having an id
 
     Example: echo $PATH 
 
-
                     /usr/local/bin:/usr/bin:/bin:/usr/games 
 
 
@@ -188,35 +168,27 @@ Other Prompt variables (less about needing to know and more of just having an id
 
         export PATH=$PATH:/opt/myapps	  (this will add the /op/myapps directory to the end of the list)
 
-
         export PATH=/opt/myapps:$PATH  (this will add directory to beginning of list)
 
 * **Permanent Way :** To make the change stick, you have to write that equation / command into the file the shell reads every time it start up. (~/.bashrc) &lt;------ The file you modify 
 
-        **vim ~/.bashrc**
+  **vim ~/.bashrc**
 
+  (At the very bottom of the file type following) 
 
-        (At the very bottom of the file type following) 
+  **export PATH=$PATH:/home/fred/bin** 
 
+  (adds the folder called bin in Fred’s home directory to the end of the list)
 
-        **export PATH=$PATH:/home/fred/bin** 
+  **Save and Exit**
 
+  **source ~/.bashrc **
 
-        (adds the folder called bin in Fred’s home directory to the end of the list)
+  (This command applies the changes you made to the PATH variable / bashrc file) 
 
+Example I might use this for:
 
-        **Save and Exit**
-
-
-        **source ~/.bashrc **
-
-
-        (This command applies the changes you made to the PATH variable / bashrc file) 
-
-
-		Example I might use this for:
-
-		If you wanted to have an easy way to start firefox from the terminal, you could add the directory that firefox was located in and add it to the PATH variable. Then type firefox and it would run / open firefox. 
+   If you wanted to have an easy way to start firefox from the terminal, you could add the directory that firefox was located in and add it to the PATH variable. Then type firefox and it would run / open firefox. 
 
 **Delete a Variable**
 
@@ -242,15 +214,13 @@ which (shows exactly which folder a command is being pulled from)
 
 **<code>printenv</code>**: Displays environment variables (the exported ones).
 
-**<code>env</code>**: Similar to `printenv`, often used to run a program in a modified environment.
+**<code>env</code>**: Similar to `printenv', often used to run a program in a modified environment.
 
-**<code>set</code>**: Displays **all** variables (including local ones and shell functions). This list is much longer than `printenv`.
+**<code>set</code>**: Displays **all** variables (including local ones and shell functions). This list is much longer than `printenv'.
 
 **source ~/.bashrc** and **. ~/.bashrc** both commands do the same thing that is applying the current bashrc modified configuration to the shell permanently. And both commands work in RHEL and debian based distros. 
 
 **~/.bashrc vs ~/.bashrc_profile**
-
-
 
 * **~/.bashrc:** The file that is executed for non-login shells (Local login shells)
 * **~/.bashrc_profile:** The file that is executed for login shells (Remote login shells / SSH login)
@@ -259,21 +229,15 @@ which (shows exactly which folder a command is being pulled from)
 
 **Where (Global vs. Local Scope)**
 
-
-
 * **Local (~/.bashrc):** Only affects **you**, if Fred changes this, Tony won’t see any difference
 * **Global (/etc/…):** Affects **everyone**, if you want a company standart you must go to the /etc/ folder because that's the “”Master Control room”” for the whole system
 
 **When (Login vs Non-Login)**
 
-
-
 * **Login Shell:** You just arrived at the server (SSH or logging into the physical screen)
 * **Non-Login Shell:** You are already at your desktop and you just opened a new terminal window
 
 **The “Debian Trick”:** Debian/Ubuntu sets up a “bridge” When you login, the system reads /etc/profile, but then /etc/profile immediately turns around and turns around and says, “Wait, I should also read /etc/bash.bashrc while i'm at it.
-
-
 
 * **Red Hat / RHEL:** calls the file /etc/bashrc
 * **Debian / Ubuntu:** calls the file /etc/bash.bashrc
@@ -288,24 +252,20 @@ Using the correct path tells Linux precisely which file or folder to work with
 
 **Absolute Paths :** The complete address for the destination allows access regardless of the current location 
 
-
-
 * An absolute path is like saying, take me to <span style="text-decoration:underline;">123 Main Street</span>, it doesn’t matter where you currently are because you have the complete address for the destination, so you can get there no matter where you
-    * **Root Directory (/): **Represents the root directory, which is the highest level of the filesystem. **All absolute paths start with this /** 
+    * **Root Directory (/):** Represents the root directory, which is the highest level of the filesystem. **All absolute paths start with this /** 
     * You are telling the Linux System to start at the root directory
-    * **Home Directory (~): ** The tilde (~) represents the current user’s home directory, providing an easy shortcut to a user-specific personal directory.
+    * **Home Directory (~):** The tilde (~) represents the current user’s home directory, providing an easy shortcut to a user-specific personal directory.
     * Also common to use the tilde when referring to folders or files inside your home directory such as ~/Documents
 
 The main difference between the tilde (~) and the root directory (/) is that the forward slash is the route directory for every user, and the tilde is user specific 
 
 Example: 
-
 **/usr/local/bin**
 
 System Starts at **root directory**, then goes to **usr directory**, then to **local directory**, finally to **bin directory**.
 
 **Relative Paths :** A path that does **NOT** start with ~ or /. It is a set of directions based solely on your current location / pwd 
-
 
 
 * **Directional Rules**
@@ -317,8 +277,6 @@ cd.. Is based on the **folder structure**; cd - is based on **your previous acti
 
 
         Examples: 
-
-
         **./myscript.sh** 
 
 		This tells the shell to look for a file named myscript.sh and run it. The . tells the shell that the file is in the current directory so it doesn’t need to look for it. 
