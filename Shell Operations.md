@@ -24,14 +24,6 @@ Conversion notes:
 ----->
 
 
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 2.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
 
 **<span style="text-decoration:underline;">Shell Operations</span>**
 
@@ -63,16 +55,11 @@ Bash variables typically have a $ sign in front when you want to **access, print
 * If you are X-Forwarding with SSH the system will show localhost:10.0 when you do echo $DISPLAY
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: Definition &darr;&darr; outside of definition list. Missing preceding term(s)? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 	:0 = Display Number : Usually refers to the entire collection of monitors connected to one keyboard / mouse set
 
 	.0 = Screen Number : This is the logical screen, which is almost always .0 because linux treats multiple monitors as 1 logical display to be able to grag windows between them. 
 
-**When you would see :1.0 **(Local Multi-Session)
-
-
+**When you would see :1.0** (Local Multi-Session)
 
 * If you login and you still have a user logged in 
 * Manual Second X Server : if you manually start a second, completely independent window manager, it will take the next available slot which is :1 
@@ -99,16 +86,11 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
     echo $SHELL
 
-
     /bin/bash
 
-
-    Examples:            
-
-
+    Examples:
+  
     	Bash
-
-
     	Zshell 
 
 * **PS1 (Prompt String 1) Variable : **Defines the style and content of the command prompt. This variable uses escape characters, which can be useful when managing linux servers. 
@@ -138,8 +120,6 @@ Result: tony@linux-lab: /var/log$
 \W = working directory, the working man MAN which are big so big W 
 
 **The “Expansion Rule” :** 
-
-
 
 * Double Quotes(“  “)**Are Weak**: Allow variables to “Expand” (change) 
     * When you open the terminal, the shell reads .bashrc, and sets the variable once, and that variable is set to that for the entire session. 
@@ -328,8 +308,6 @@ cd.. Is based on the **folder structure**; cd - is based on **your previous acti
 
 In the Linux execution cycle the shell performs the Tilde Expansion phase as one of its first steps. 
 
-
-
 * When the shell sees ~ it immediately replaces it with the string found in the $HOME environment variable 
 
     ~   =   /home/Fred   (~ is converted to /home/localuser 
@@ -338,21 +316,17 @@ In the Linux execution cycle the shell performs the Tilde Expansion phase as one
 
 **Diagnostic Commands**
 
-
-
 * **pwd (Print Working Directory) :** Shows the absolute path of your current directory
-* **realpath : ** Command that converts a relative path into an absolute path. 
+* **realpath :** Command that converts a relative path into an absolute path. 
     * You are in ~ and type,
 
-        **realpath scripts/test.sh **
-
-
+        **realpath scripts/test.sh**
         Output: /home/fred/scripts/test.sh 
 
-* **basename : **Returns only the filename from a path
+* **basename :** Returns only the filename from a path
     * **basename /etc/passwd**
-    * Output: **passwd **
-* **dirname : **Returns only the directory part of the path 
+    * Output: **passwd**
+* **dirname :** Returns only the directory part of the path 
     * **dirname /etc/passwd**
     * Output: **/etc**
 
@@ -361,17 +335,14 @@ In the Linux execution cycle the shell performs the Tilde Expansion phase as one
 Even if you are in the same folder as a file, the shell will not find it by name alone because the current directory is not in the $PATH variable.
 
 
-
 * **myscript.sh** = The shell looks in the systems official folders ie $PATH variable (command fails)
-* **./myscript.sh **= ignores the system folders / $PATH; instead looks only in the directory that you are currently in. (command runs / works) 
+* **./myscript.sh**= ignores the system folders / $PATH; instead looks only in the directory that you are currently in. (command runs / works) 
 
 **Security Reason:** **./** prevents **Path Hijacking**, it ensures that a malicious file named ls in your current folder doesn’t accidentally run when you intended to run the real system /bin/ls 
 
-**~ VS / **
+**~ VS /**
 
-
-
-* **~ (Tilde) : **The tilde is the local users home directory, **Local / personal** space, every user is able to access and make changes to there own home directory.
+* **~ (Tilde) :** The tilde is the local users home directory, **Local / personal** space, every user is able to access and make changes to there own home directory.
     * Changes made here affect **ONLY YOU**
 * **/ (Root) :** Access usually requires sudo or being logged into the root user. Not anyone can just change things in this directory, but every user can almost always look / read the / root directory just no change 
     * Rooms / directories that only the root has access to:
@@ -381,8 +352,6 @@ Even if you are in the same folder as a file, the shell will not find it by name
     * Changes made here affect **EVERYONE**
 
 **Difference Between Login User and Non-Login user**
-
-
 
 * **Login User:** This occurs when you directly authenticate to the system to begin your entire session. 
     * If you are **logging into the shell directly** to get into the system
