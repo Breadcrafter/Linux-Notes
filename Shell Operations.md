@@ -44,10 +44,6 @@ Bash variables typically have a $ sign in front when you want to **access, print
 
 	Example: echo $DISPLAY
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: Definition &darr;&darr; outside of definition list. Missing preceding term(s)? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 		     :0.0
 
 
